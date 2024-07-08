@@ -28,19 +28,10 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 form {
   font-family: 'Times New Roman', Times, serif;
   text-align: center;
+  padding-top: 25px;
 }
 
 ul {
@@ -49,13 +40,43 @@ ul {
 }
 
 h1 {
-  font-family: 'Times New Roman', Times, serif;
   text-align: center;
+  margin: 0;
 }
 
-div {
+.page-select-container {
+  height: 50vh;
+  width: 100%;
+  background-color: #282c34;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+  flex-direction: row;
+
+  input {
+    display: none;
+  }
+}
+
+.page-option {
+  height: 80%;
+  width: 20%;
+  background-color: beige;
+  cursor: pointer;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+#option-1:checked~#page-option-1 {
+  background-color: #61dafb;
+}
+
+#option-2:checked~#page-option-2 {
+  background-color: #61dafb;
+}
+
+.page-display {
+  height: 50vh;
+  width: 100%;
+  background-color: #61dafb;
 }
