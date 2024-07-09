@@ -1,4 +1,5 @@
 import { useState } from "react"
+import style from './style/Todo.module.css'
 
 export function NewTodoForm({ onSubmit }) {
     const [newItem, setNewItem] = useState("")
@@ -12,15 +13,15 @@ export function NewTodoForm({ onSubmit }) {
         setNewItem("")
     }
 
-    return <form onSubmit={handleSubmit} className="new-item-form">
-        <div className="form-row">
-            <label htmlFor="item">New Label</label>
+    return <form onSubmit={handleSubmit} className={style.newItemForm}>
+        <div className={style.formRow}>
+            <label className={style.inputLabel} htmlFor="item">New Item</label>
             <input value={newItem}
                 onChange={e => setNewItem(e.target.value)}
                 type="text"
                 id="item"
             />
+            <div className={style.underline}/>
         </div>
-        <button className="btn">Add</button>
     </form>
 }

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { TodoList } from './TodoList';
 import { NewTodoForm } from './NewTodoForm';
+import style from './style/Todo.module.css'
 
 export function Todo() {
     const [todos, setTodos] = useState(() => {
@@ -43,13 +44,16 @@ export function Todo() {
 
 
     return (
-        <>
-            <NewTodoForm onSubmit={addTodo} />
-            <h1 className='header'>Todo List</h1>
-            <TodoList todos={todos}
-                toggleTodo={toggleTodo}
-                deleteTodo={deleteTodo}
-            />
-        </>
+        <div className={style.container}>
+            <div className={style.border}>
+                <h1 className={style.header}>Todo List</h1>
+                <div className={style.line} />
+                <NewTodoForm onSubmit={addTodo} />
+                <TodoList todos={todos}
+                    toggleTodo={toggleTodo}
+                    deleteTodo={deleteTodo}
+                />
+            </div>
+        </div>
     )
 }
