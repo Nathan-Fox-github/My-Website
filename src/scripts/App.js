@@ -30,7 +30,7 @@ export default function App() {
 
   return (
     <>
-      <Pages handlePageChange={handlePageChange} />
+      <Pages handlePageChange={handlePageChange} checked={page} />
 
       <div className='page-display'>
         {pageContent}

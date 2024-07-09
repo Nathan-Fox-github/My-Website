@@ -1,6 +1,7 @@
 .container {
     margin: 0px;
     background: linear-gradient(to right, #00AAFF, #00FF6c);
+    height: 100%;
 }
 
 .grid {
@@ -38,6 +39,7 @@
     padding: .75rem;
     word-wrap: break-word;
     word-break: break-all;
+    border-radius: 5px;
 }
 
 .output .previousOperand {

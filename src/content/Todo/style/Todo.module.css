@@ -1,8 +1,7 @@
 .container {
     margin: 0px;
-    padding: 20px;
     background: linear-gradient(to right, purple, #00AAFF);
-    min-height: 100%;
+    min-height: 90vh;
     align-content: center;
     justify-content: center;
     display: flex;
@@ -12,8 +11,10 @@
     background-color: #282c34;
     width: auto;
     max-width: 90%;
+    height: fit-content;
     border-radius: 25px;
-    padding: 15px;
+    padding: 20px;
+    margin-top: 15px;
     align-content: center;
     display: flex;
     flex-direction: column;
@@ -21,6 +22,8 @@
 }
 
 .header {
+    text-align: center;  
+    margin: 0;
     color: #FFFFFF;
 }
 
@@ -35,6 +38,7 @@ ul {
     color: white;
     list-style: none;
     flex-grow: 1;
+    text-align: center;
 }
 
 li {
