@@ -1,8 +1,10 @@
 import { useState } from 'react';
-import { Pages } from '../content/Pages';
+import { Pages } from '../content/Pages/Pages';
 import { Todo } from '../content/Todo/Todo';
 import { Calculator } from '../content/Calculator/Calculator';
 import '../style/App.css';
+
+export let pages = ["Home", "Todo", "Calc"];
 
 export default function App() {
   const [page, changePage] = useState("Home")

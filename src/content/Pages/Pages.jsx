@@ -1,8 +1,7 @@
 import { PageOption } from "./PageOption";
+import { pages } from "../../scripts/App"
 
 export function Pages({ handlePageChange }) {
-  let pages = ["Home", "Todo", "Calc"];
-
   return (
     <div className="page-select-container">
       {pages.map(page => {
