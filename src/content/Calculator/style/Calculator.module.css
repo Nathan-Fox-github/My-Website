@@ -1,9 +1,9 @@
-.calculator-container {
+.container {
     margin: 0px;
     background: linear-gradient(to right, #00AAFF, #00FF6c);
 }
 
-.calculator-grid {
+.grid {
     display: grid;
     padding: 2rem;
     justify-content: center;
@@ -11,7 +11,7 @@
     grid-template-rows: minmax(7rem, auto) repeat(5, 6rem);
 }
 
-.calculator-grid > button {
+.grid > button {
     cursor: pointer;
     font-size: 2rem;
     border: 1px solid white;
@@ -19,16 +19,16 @@
     background-color: rgba(255, 255, 255, .75);
 }
 
-.calculator-grid > button:focus,
-.calculator-grid > button:hover {
+.grid > button:focus,
+.grid > button:hover {
     background-color: rgba(255, 255, 255, .9);
 }
 
-.calculator-span-two {
+.spanTwo {
     grid-column: span 2;
 }
 
-.calculator-output {
+.output {
     grid-column: 1 / -1;
     background-color: rgba(0, 0, 0, .75);
     display: flex;
@@ -40,11 +40,11 @@
     word-break: break-all;
 }
 
-.calculator-output .calculator-previous-operand {
+.output .previousOperand {
     color: rgba(255, 255, 255, .75);
 }
 
-.calculator-output .calculator-current-operand {
+.output .currentOperand {
     color: rgba(255, 255, 255, 1);
     font-size: 2.5rem;
 }
