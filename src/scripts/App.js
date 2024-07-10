@@ -2,9 +2,10 @@ import { useState } from 'react';
 import { Pages } from '../content/Pages/Pages';
 import { Todo } from '../content/Todo/Todo';
 import { Calculator } from '../content/Calculator/Calculator';
+import { API } from '../content/API/API';
 import '../style/App.css';
 
-export let pages = ["Home", "Todo", "Calc"];
+export let pages = ["Home", "Todo", "Calc", "API"];
 
 export default function App() {
   const [page, changePage] = useState("Home")
@@ -24,9 +25,13 @@ export default function App() {
     case 'Calc':
       pageContent = <Calculator />
       break;
+    case 'API':
+      pageContent = <API />
+      break;
     default:
       pageContent = "";
   }
+
 
   return (
     <>

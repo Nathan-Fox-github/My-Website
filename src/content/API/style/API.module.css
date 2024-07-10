@@ -1,0 +1,61 @@
+.container {
+    background: linear-gradient(to right, #00FF6c, orange);
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding-top: 15px;
+    width: 100%;
+    height: fit-content;
+}
+
+.border {
+    background-color: rgba(63, 63, 63, .85);
+    padding: 20px;
+    margin: 10px;
+    border-radius: 20px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+}
+
+.buttonPanel {
+    display: inline-flex;
+    margin-top: 10px;
+    width: 100%;
+}
+
+.left {
+    width: 70%;
+    justify-content: end;
+}
+
+.right {
+    width: 30%;
+    display: inline-flex;
+    justify-content: end;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+}
+
+.search textarea {
+    margin-right: 15px;
+    padding-left: 15px;
+    width: 80%;
+    resize: none;
+}
+
+.search input {
+    background: #00FF6c;
+    border-width: 2px;
+    border-color: black;
+    border: 1px;
+    width: 10%;
+    height: 20%;
+}
