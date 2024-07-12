@@ -24,6 +24,10 @@ export function API() {
         changeVideo(videoID)
     }
 
+    function scroll() {
+        window.scrollTo(0, 100);
+    }
+
     return (
         <div className={style.container}>
             <div className={style.border}>
@@ -34,6 +38,10 @@ export function API() {
 
                     <VideoOptions options={options} handleSelection={handleSelection} />
                 </div>
+            </div>
+
+            <div onClick={scroll} className={style.scrollBtn}>
+                <h3>To Screen</h3>
             </div>
         </div>
     )
