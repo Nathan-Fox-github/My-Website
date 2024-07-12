@@ -1,12 +1,12 @@
 import YouTube from 'react-youtube';
-import youtube from '../../scripts/youtube';
-import { VideoOption } from './VideoOption';
 import style from './style/API.module.css';
+import { VideoOptions } from './VideoOptions';
+import { ButtonPanel } from './ButtonPanel';
 import { useState } from 'react';
 
 export function API() {
-    const [options, setOptions] = useState([])
-    const [selectedOption, setSelected] = useState(null)
+    const [options, setOptions] = useState([]);
+    const [video, changeVideo] = useState('M7lc1UVf-VE');
 
     const opts = {
         height: '780',
@@ -20,46 +20,19 @@ export function API() {
         event.target.pauseVideo();
     }
 
-    function handleSubmit(e) {
-        // e.preventDefault()
-        // API_call()
-    }
-
-
-    async function API_call() {
-        // let termFromSearch = document.search;
-        // console.log(termFromSearch);
-        // const response = await youtube.get('/search', {
-        //     params: {
-        //         q: termFromSearch
-        //     }
-        // })
-
-        // setOptions({
-        //     options: response.data.items
-        // })
-        // console.log("tis the resp: ", response);
+    function handleSelection(videoID) {
+        changeVideo(videoID)
     }
 
     return (
         <div className={style.container}>
             <div className={style.border}>
                 <div className={style.content}>
-                    <YouTube videoId='M7lc1UVf-VE' opts={opts} onReady={_onReady} />
+                    <YouTube videoId={video} opts={opts} onReady={_onReady} />
 
-                    <div className={style.buttonPanel}>
-                        <div className={style.left}>
-                            <form className={style.search} onSubmit={() => handleSubmit}>
-                                <textarea id='search' name='searchbar' form='submitButton'></textarea>
-                                <input type='submit'></input>
-                            </form>
-                        </div>
-                        <div className={style.right}>
-                            <button className={style.refresh}>REFRESH</button>
-                        </div>
-                    </div>
+                    <ButtonPanel setOptions={setOptions} />
 
-                    <VideoOption />
+                    <VideoOptions options={options} handleSelection={handleSelection} />
                 </div>
             </div>
         </div>
