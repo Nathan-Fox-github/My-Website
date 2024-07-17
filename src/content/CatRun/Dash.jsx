@@ -14,30 +14,33 @@ export function Dash({ switchMode }) {
         function game() {
             const canvas = document.getElementById("canvas");
             const ctx = canvas.getContext("2d");
-            const width = canvas.width = window.innerWidth;
-            const height = canvas.height = window.innerHeight;
+            const width = 800; // Fixed canvas width
+            const height = 500; // Fixed canvas height
+
+            canvas.width = width;
+            canvas.height = height;
 
             const floor = {
                 x: 0,
                 y: height - 50,
                 width: width,
                 height: 50,
-                speed: 1.5
+                speed: 1 // Reduced speed
             };
 
             const ceiling = {
                 x: 0,
-                y: height - floor.height - (height * 2 / 3),
+                y: height * 0.33, // Position the ceiling at 1/3 of the canvas height
                 width: width,
                 height: 20,
                 color: 'yellow'
             };
 
-            const gravity = 0.015;
-            const jumpSpeed = -3;
-            const originalBlueWidth = 150;
-            const originalBlueHeight = 100;
-            const hoverHeight = 30;
+            const gravity = 0.0075; // Reduced gravity for more airtime
+            const jumpSpeed = -1.5; // Reduced jump speed
+            const originalBlueWidth = 75; // Scaled-down width of the blue block
+            const originalBlueHeight = 50; // Scaled-down height of the blue block
+            const hoverHeight = 15; // Scaled-down hover height
             const groundLevel = height - floor.height - originalBlueHeight;
 
             const blueSquare = {
@@ -45,7 +48,7 @@ export function Dash({ switchMode }) {
                 y: groundLevel - hoverHeight,
                 width: originalBlueWidth,
                 height: originalBlueHeight,
-                speed: 5,
+                speed: 2.5, // Reduced speed
                 verticalSpeed: 0,
                 isCrouching: false
             };
@@ -56,10 +59,10 @@ export function Dash({ switchMode }) {
             function addRedSquare() {
                 redSquares.push({
                     x: width,
-                    y: height - floor.height - 240,
-                    width: 80,
-                    height: 240,
-                    speed: 1.5
+                    y: height - floor.height - 100, // Adjusted for the new size
+                    width: 40, // Scaled-down width
+                    height: 200, // Scaled-down height
+                    speed: 1 // Reduced speed
                 });
             }
 
@@ -67,9 +70,9 @@ export function Dash({ switchMode }) {
                 hangingRedSquares.push({
                     x: width,
                     y: ceiling.y + ceiling.height,
-                    width: 120,
-                    height: 340,
-                    speed: 1.5
+                    width: 60, // Scaled-down width
+                    height: 210, // Scaled-down height
+                    speed: 1 // Reduced speed
                 });
             }
 
@@ -189,22 +192,8 @@ export function Dash({ switchMode }) {
             var lastRender = 0;
             animationFrameId.current = window.requestAnimationFrame(loop);
 
-            window.addEventListener('keydown', (event) => handleKeyDown(event, keysPressed.current));
-            window.addEventListener('keyup', (event) => handleKeyUp(event, keysPressed.current));
-
-            // Add red squares and hanging red squares at random intervals
-            function scheduleNextRedSquare() {
-                if (!gamePaused) addRedSquare();
-                setTimeout(scheduleNextRedSquare, getRandomInterval());
-            }
-
-            function scheduleNextHangingRedSquare() {
-                if (!gamePaused) addHangingRedSquare();
-                setTimeout(scheduleNextHangingRedSquare, getRandomInterval());
-            }
-
-            scheduleNextRedSquare();
-            scheduleNextHangingRedSquare();
+            window.addEventListener('keydown', (event) => handleKeyDown(event, keysPressed));
+            window.addEventListener('keyup', (event) => handleKeyUp(event, keysPressed));
 
             function scheduleNextRedSquare() {
                 if (Math.random() < 0.5) {
